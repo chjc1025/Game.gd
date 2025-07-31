@@ -1,0 +1,15 @@
+extends CanvasLayer
+
+# 直接在物理过程中更新输入状态
+func _physics_process(delta):
+	# 重置所有输入状态
+	Input.action_release("up")
+	Input.action_release("down")
+	Input.action_release("left")
+	Input.action_release("right")
+	
+	# 更新当前按下的按钮
+	if $W_Button.is_pressed(): Input.action_press("up")
+	if $S_Button.is_pressed(): Input.action_press("down")
+	if $A_Button.is_pressed(): Input.action_press("left")
+	if $D_Button.is_pressed(): Input.action_press("right")
